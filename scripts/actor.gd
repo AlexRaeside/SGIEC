@@ -1,7 +1,11 @@
 extends Node2D
 
 
-var player = 1 
+
+@export_enum("one", "two") var player: String
+
+@export_node_path("Sprite2D") var sprite
+
 
 var knot_mark = preload("res://scenes/knot.tscn")
 var cross_mark = preload("res://scenes/cross.tscn")
@@ -15,14 +19,26 @@ func check_movement_input():
 	var tile_node = self.get_parent()
 	var target_vector = Vector2(0,0)
 	
-	if Input.is_action_just_pressed("player_input_up"): # UP
-		target_vector = tile_node.grid_cord + Vector2(0, -1)
-	if Input.is_action_just_pressed("player_input_down"):
-		target_vector = tile_node.grid_cord + Vector2(0, 1)
-	if Input.is_action_just_pressed("player_input_left"):
-		target_vector = tile_node.grid_cord + Vector2(-1, 0)
-	if Input.is_action_just_pressed("player_input_right"):
-		target_vector = tile_node.grid_cord + Vector2(1, 0)
+	if player == "one":
+		if Input.is_action_just_pressed("player_1_up"): # UP
+			target_vector = tile_node.grid_cord + Vector2(0, -1)
+		if Input.is_action_just_pressed("player_1_down"):
+			target_vector = tile_node.grid_cord + Vector2(0, 1)
+		if Input.is_action_just_pressed("player_1_left"):
+			target_vector = tile_node.grid_cord + Vector2(-1, 0)
+		if Input.is_action_just_pressed("player_1_right"):
+			target_vector = tile_node.grid_cord + Vector2(1, 0)
+	
+	if player == "two":
+		if Input.is_action_just_pressed("player_2_up"): # UP
+			target_vector = tile_node.grid_cord + Vector2(0, -1)
+		if Input.is_action_just_pressed("player_2_down"):
+			target_vector = tile_node.grid_cord + Vector2(0, 1)
+		if Input.is_action_just_pressed("player_2_left"):
+			target_vector = tile_node.grid_cord + Vector2(-1, 0)
+		if Input.is_action_just_pressed("player_2_right"):
+			target_vector = tile_node.grid_cord + Vector2(1, 0)
+	
 	
 	return(target_vector)
 
@@ -37,11 +53,11 @@ func mark_tile():
 	if tile_node.lock == true:
 		return(null)
 	
-	if player == 1:
+	if player == "one":
 		var knot_instance = knot_mark.instantiate()
 		tile_node.add_child(knot_instance)
 	
-	if player == 2:
+	if player == "two":
 		var cross_instance = cross_mark.instantiate()
 		tile_node.add_child(cross_instance)
 	
@@ -81,5 +97,8 @@ func _process(delta):
 	
 	# check for mark input 
 	
-	if Input.is_action_just_pressed("player_input_mark"):
+	if player == "one" and Input.is_action_just_pressed("player_1_action"):
+		mark_tile()
+	
+	if player == "two" and Input.is_action_just_pressed("player_2_action"):
 		mark_tile()

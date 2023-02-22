@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gdrba6nl66of"]
+
+[ext_resource type="Texture2D" uid="uid://b51lf168p80pi" path="res://aseprite/yellow_pointer.png" id="1_0vg8l"]
+
+[node name="cross_man" type="Sprite2D"]
+texture = ExtResource("1_0vg8l")

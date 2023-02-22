@@ -39,6 +39,11 @@ func check_win(player, mark_type):
 		if win_loop(i, "knot") == true:
 			print("Game won")
 			game_won(i, player)
+	for i in check_array:
+		if win_loop(i, "cross") == true:
+			print("Game won")
+			game_won(i, player)
+
 
 # loop for nodes and if all have the mark return True
 func win_loop(node_array, mark_type):
@@ -66,7 +71,6 @@ func game_won(win_nodes, player):
 	for i in win_nodes:
 		i.play_win_animation()
 	
-	# animate the wining nodes 
 	
 	# show the win screen that lets q for quit and r for replay
 	

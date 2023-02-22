@@ -25,9 +25,13 @@ position = Vector2(0, 64)
 position = Vector2(64, 64)
 
 [node name="actor" parent="tileGrid/tile5" instance=ExtResource("3_05ohv")]
+player = "one"
 
 [node name="tile6" parent="tileGrid" instance=ExtResource("2_uecfk")]
 position = Vector2(128, 64)
+
+[node name="actor" parent="tileGrid/tile6" instance=ExtResource("3_05ohv")]
+player = "two"
 
 [node name="tile7" parent="tileGrid" instance=ExtResource("2_uecfk")]
 position = Vector2(0, 128)
