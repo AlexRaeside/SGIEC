@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://cldtjxx6btwoi"]
+
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_uqf57"]
+[ext_resource type="Texture2D" uid="uid://2h61vdvtfjny" path="res://aseprite/tile.png" id="2_axu3v"]
+[ext_resource type="Texture2D" uid="uid://berpf65erg4iv" path="res://aseprite/tile_animation.png" id="3_aflkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2psrt"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh5ha"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx7j5"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxs4"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3k4p"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8eri"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f0vh"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pv5a"]
+atlas = ExtResource("3_aflkn")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpq3p"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh5ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx7j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doxs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3k4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8eri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f0vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pv5a")
+}],
+"loop": false,
+"name": &"tile_win",
+"speed": 5.0
+}]
+
+[node name="tile" type="Node2D"]
+script = ExtResource("1_uqf57")
+
+[node name="tileArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tileArea"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_2psrt")
+
+[node name="tileSprite" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("2_axu3v")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 64.0
+offset_bottom = 24.0
+
+[node name="tileWin" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_rpq3p")
+animation = &"tile_win"
+frame = 6
+frame_progress = 1.0
+
+[connection signal="mouse_entered" from="tileArea" to="." method="_on_tile_area_mouse_entered"]
+[connection signal="mouse_exited" from="tileArea" to="." method="_on_tile_area_mouse_exited"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1u0ag4f4ftup"]
+
+[ext_resource type="Texture2D" uid="uid://cxqlfxid57lr7" path="res://aseprite/knot.png" id="1_g03mw"]
+
+[node name="knot" type="Node2D"]
+
+[node name="Knot" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("1_g03mw")

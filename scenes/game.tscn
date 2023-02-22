@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgkqwhoggiu22"]
+
+[ext_resource type="Script" path="res://scripts/tileGrid.gd" id="1_2xlab"]
+[ext_resource type="PackedScene" uid="uid://cldtjxx6btwoi" path="res://scenes/tile.tscn" id="2_uecfk"]
+[ext_resource type="PackedScene" uid="uid://d1gm6rf820ys3" path="res://scenes/actor.tscn" id="3_05ohv"]
+
+[node name="game" type="Node2D"]
+
+[node name="tileGrid" type="Marker2D" parent="."]
+position = Vector2(128, 128)
+script = ExtResource("1_2xlab")
+
+[node name="tile" parent="tileGrid" instance=ExtResource("2_uecfk")]
+
+[node name="tile2" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(64, 0)
+
+[node name="tile3" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(128, 0)
+
+[node name="tile4" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(0, 64)
+
+[node name="tile5" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(64, 64)
+
+[node name="actor" parent="tileGrid/tile5" instance=ExtResource("3_05ohv")]
+
+[node name="tile6" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(128, 64)
+
+[node name="tile7" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(0, 128)
+
+[node name="tile8" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(64, 128)
+
+[node name="tile9" parent="tileGrid" instance=ExtResource("2_uecfk")]
+position = Vector2(128, 128)
