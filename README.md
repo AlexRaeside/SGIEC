@@ -2,6 +2,8 @@
 
 The simplest game I'll ever complete
 
+Update 2025: Im not goint to complete this 
+
 ## What is the game?
 
 A multiplayer knots and crosses game. In more detail SGIEC is a game
